@@ -7,6 +7,7 @@ namespace CarRental.Business.Entieties
     [DataContract] //For serialization, only caries data the easiest one
     public class Car : EntityBase, IIdentifiableEntity
     {
+		//test
         [DataMember]
         public int CarId { get; set; }
 
