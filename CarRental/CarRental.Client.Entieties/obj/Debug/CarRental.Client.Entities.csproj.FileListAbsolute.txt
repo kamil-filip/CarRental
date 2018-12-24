@@ -1,0 +1,12 @@
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\bin\Debug\CarRental.Client.Entieties.dll
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\bin\Debug\CarRental.Client.Entieties.pdb
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\bin\Debug\FluentValidation.dll
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\bin\Debug\System.ComponentModel.Primitives.dll
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\bin\Debug\System.ValueTuple.dll
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\bin\Debug\FluentValidation.xml
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\bin\Debug\System.ValueTuple.xml
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\obj\Debug\CarRental.Client.Entities.csprojAssemblyReference.cache
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\obj\Debug\CarRental.Client.Entities.csproj.CoreCompileInputs.cache
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\obj\Debug\CarRental.Client.Entities.csproj.CopyComplete
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\obj\Debug\CarRental.Client.Entieties.dll
+C:\Users\kozlo\source\repos\CarRental\CarRental.Client.Entieties\obj\Debug\CarRental.Client.Entieties.pdb
