@@ -1,9 +1,0 @@
-c:\users\kozlo\source\repos\CarRental\CarRental\bin\Debug\netstandard2.0\CarRental.deps.json
-c:\users\kozlo\source\repos\CarRental\CarRental\bin\Debug\netstandard2.0\CarRental.dll
-c:\users\kozlo\source\repos\CarRental\CarRental\bin\Debug\netstandard2.0\CarRental.pdb
-c:\users\kozlo\source\repos\CarRental\CarRental\obj\Debug\netstandard2.0\CarRental.csprojAssemblyReference.cache
-c:\users\kozlo\source\repos\CarRental\CarRental\obj\Debug\netstandard2.0\CarRental.csproj.CoreCompileInputs.cache
-c:\users\kozlo\source\repos\CarRental\CarRental\obj\Debug\netstandard2.0\CarRental.AssemblyInfoInputs.cache
-c:\users\kozlo\source\repos\CarRental\CarRental\obj\Debug\netstandard2.0\CarRental.AssemblyInfo.cs
-c:\users\kozlo\source\repos\CarRental\CarRental\obj\Debug\netstandard2.0\CarRental.dll
-c:\users\kozlo\source\repos\CarRental\CarRental\obj\Debug\netstandard2.0\CarRental.pdb

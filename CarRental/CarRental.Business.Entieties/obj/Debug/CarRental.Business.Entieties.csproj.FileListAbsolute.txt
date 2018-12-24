@@ -1,9 +1,0 @@
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\bin\Debug\CarRental.Business.Entieties.dll
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\bin\Debug\CarRental.Business.Entieties.pdb
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\obj\Debug\CarRental.Business.Entieties.csprojAssemblyReference.cache
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\obj\Debug\CarRental.Business.Entieties.csproj.CoreCompileInputs.cache
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\obj\Debug\CarRental.Business.Entieties.dll
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\obj\Debug\CarRental.Business.Entieties.pdb
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\bin\Debug\Core.Common.dll
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\bin\Debug\Core.Common.pdb
-c:\users\kozlo\source\repos\CarRental\CarRental.Business.Entieties\obj\Debug\CarRental.Business.Entieties.csproj.CopyComplete
