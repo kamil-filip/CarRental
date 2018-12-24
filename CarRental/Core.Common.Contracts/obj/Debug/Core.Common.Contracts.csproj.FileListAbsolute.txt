@@ -1,0 +1,6 @@
+c:\users\kozlo\source\repos\CarRental\Core.Common.Contracts\bin\Debug\Core.Common.Contracts.dll
+c:\users\kozlo\source\repos\CarRental\Core.Common.Contracts\bin\Debug\Core.Common.Contracts.pdb
+c:\users\kozlo\source\repos\CarRental\Core.Common.Contracts\obj\Debug\Core.Common.Contracts.csprojAssemblyReference.cache
+c:\users\kozlo\source\repos\CarRental\Core.Common.Contracts\obj\Debug\Core.Common.Contracts.csproj.CoreCompileInputs.cache
+c:\users\kozlo\source\repos\CarRental\Core.Common.Contracts\obj\Debug\Core.Common.Contracts.dll
+c:\users\kozlo\source\repos\CarRental\Core.Common.Contracts\obj\Debug\Core.Common.Contracts.pdb
