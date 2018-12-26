@@ -2,19 +2,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
+using FluentValidation;
+using FluentValidation.Results;
+using System.Text;
+using System.Linq.Expressions;
+using Core.Common.Utils;
 
 namespace Core.Common.Core
 {
     [DataContract]
-    public abstract class ObjectBase : NotificationObject, IExtensibleDataObject, IDirtyCapable
+    public abstract class ObjectBase : NotificationObject, IExtensibleDataObject, IDirtyCapable, IDataErrorInfo
     {
+        public ObjectBase()
+        {
+            _Validator = GetValidator();
+            Validate();
+        }
+     
         protected bool _IsDirty = false;
+        protected IValidator _Validator = null;
+        private IList<ValidationFailure> _ValidationErrors;
 
         #region IDirtyCapable members
 
+        [NotNavigable]
         public virtual bool IsDirty
         {
             get { return _IsDirty; }
@@ -83,6 +98,13 @@ namespace Core.Common.Core
             if (makeDirty)
                 IsDirty = true;
 
+            Validate();
+        }
+
+        protected void OnPropertyChanged<T>(Expression<Func<T>> propertyExpression, bool makeDirty)
+        {
+            string propertyName = PropertySupport.ExtractPropertyName(propertyExpression);
+            OnPropertyChanged(propertyName, makeDirty);
         }
 
         #region IExtensibleDataObject Members
@@ -149,6 +171,74 @@ namespace Core.Common.Core
         }
 
         #endregion
+
+        #region Validation
+
+        protected virtual IValidator GetValidator()
+        {
+            return null;
+        }
+
+        public IEnumerable<ValidationFailure> ValidationErrors
+        {
+            get { return _ValidationErrors; }
+            set { }
+        }
+
+        public void Validate()
+        {
+            if(_Validator != null)
+            {
+                ValidationResult results = _Validator.Validate(this);
+                _ValidationErrors = results.Errors;
+            }
+        }
+
+        [NotNavigable]
+        public virtual bool IsValid
+        {
+            get
+            {
+                if (_ValidationErrors != null && _ValidationErrors.Count() > 0)
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        #endregion
+
+        #region IDataErrorInfo members
+
+
+        string IDataErrorInfo.Error
+        {
+            get { return string.Empty; }
+        }
+
+        string IDataErrorInfo.this[string columnName]
+        {
+            get
+            {
+                StringBuilder errors = new StringBuilder();
+
+                if(_ValidationErrors != null && _ValidationErrors.Count() > 0)
+                {
+                    foreach(ValidationFailure validationError in _ValidationErrors)
+                    {
+                        if (validationError.PropertyName == columnName)
+                            errors.AppendLine(validationError.ErrorMessage);
+                    }
+                }
+
+                return errors.ToString();
+            }
+        }
+
+        public string this[string columnName] => throw new NotImplementedException();
+
+        #endregion
+
 
         private PropertyInfo[] GetBrowsableProperties()
         {
