@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{33B155EB-3D72-42A8-B53C-91021A6EA4C5}</ProjectGuid>
+    <ProjectGuid>{FFC0CF9C-5533-46F5-A5F3-5918E24863AF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Common</RootNamespace>
-    <AssemblyName>Core.Common</AssemblyName>
+    <RootNamespace>CarRental.Data</RootNamespace>
+    <AssemblyName>CarRental.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,22 +37,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentValidation.8.1.2\lib\net45\FluentValidation.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
-    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
-    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,25 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\EntityBase.cs" />
-    <Compile Include="Core\NotificationObject.cs" />
-    <Compile Include="Core\NotNavigableAttribute.cs" />
-    <Compile Include="Core\ObjectBase.cs" />
-    <Compile Include="Data\DataRepositoryBase.cs" />
-    <Compile Include="Extensions\CoreExtensions.cs" />
+    <Compile Include="CarRentalContext.cs" />
+    <Compile Include="Data Repositories\AccountRepository.cs" />
+    <Compile Include="DataRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\PropertySupport.cs" />
-    <Compile Include="Utils\SimpleMapper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core.Common.Contracts\Core.Common.Contracts.csproj">
-      <Project>{037F6BA1-847A-4776-9188-9E7EBA336F97}</Project>
-      <Name>Core.Common.Contracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CarRental.Business.Entieties\CarRental.Business.Entities.csproj">
+      <Project>{F766B64B-05A5-462D-944F-171B446FAE43}</Project>
+      <Name>CarRental.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common.Contracts\Core.Common.Contracts.csproj">
+      <Project>{037F6BA1-847A-4776-9188-9E7EBA336F97}</Project>
+      <Name>Core.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{33B155EB-3D72-42A8-B53C-91021A6EA4C5}</Project>
+      <Name>Core.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

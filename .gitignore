@@ -13,3 +13,11 @@
 /CarRental/Core.Common/bin/Debug
 /CarRental/CarRental.Client.Entieties/obj/Debug
 /CarRental/CarRental.Client.Entieties/bin/Debug
+/CarRental/packages/EntityFramework.6.2.0
+/CarRental/CarRental.Data.Contracts/bin/Debug
+/CarRental/CarRental.Data.Contracts/obj/Debug
+/CarRental/CarRental.Data/obj/Debug
+/CarRental/CarRental.Data/bin/Debug
+/CarRental/.vs/CarRental/DesignTimeBuild
+/CarRental/CarRental.Data.Tests/bin/Debug
+/CarRental/CarRental.Data.Tests/obj/Debug
