@@ -11,6 +11,7 @@ using FluentValidation.Results;
 using System.Text;
 using System.Linq.Expressions;
 using Core.Common.Utils;
+using Core.Common.Extensions;
 
 namespace Core.Common.Core
 {
@@ -91,6 +92,19 @@ namespace Core.Common.Core
         #endregion
 
 
+        #region Property change notification
+
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(propertyName, true);
+        }
+
+        protected void OnPropertyChanged<T>(Expression<Func<T>> propertyExpression, bool makeDirty)
+        {
+            string propertyName = PropertySupport.ExtractPropertyName(propertyExpression);
+            OnPropertyChanged(propertyName, makeDirty);
+        }
+
         protected void OnPropertyChanged(string propertyName, bool makeDirty)
         {
             base.OnPropertyChanged(propertyName);
@@ -101,12 +115,7 @@ namespace Core.Common.Core
             Validate();
         }
 
-        protected void OnPropertyChanged<T>(Expression<Func<T>> propertyExpression, bool makeDirty)
-        {
-            string propertyName = PropertySupport.ExtractPropertyName(propertyExpression);
-            OnPropertyChanged(propertyName, makeDirty);
-        }
-
+        #endregion
         #region IExtensibleDataObject Members
 
         public ExtensionDataObject ExtensionData { get; set; }
@@ -239,10 +248,5 @@ namespace Core.Common.Core
 
         #endregion
 
-
-        private PropertyInfo[] GetBrowsableProperties()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

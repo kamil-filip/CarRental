@@ -1,11 +1,9 @@
-﻿using Core.Common.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using Core.Common.Utils;
 
 namespace Core.Common.Core
 {
@@ -19,7 +17,7 @@ namespace Core.Common.Core
         {
             add
             {
-                if(!_PropertyChangedSubscribers.Contains(value))
+                if (!_PropertyChangedSubscribers.Contains(value))
                 {
                     _PropertyChangedEvent += value;
                     _PropertyChangedSubscribers.Add(value);
