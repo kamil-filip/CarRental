@@ -2,7 +2,7 @@
 using Core.Common.Core;
 using System.Runtime.Serialization;
 
-namespace CarRental.Business.Entieties
+namespace CarRental.Business.Entities
 {   // we can point data contract namespace explicitly via namespace attr /*(Namespace = "http://www.pluralsight.com/carrental")*/
     [DataContract] //For serialization, only caries data the easiest one
     public class Car : EntityBase, IIdentifiableEntity

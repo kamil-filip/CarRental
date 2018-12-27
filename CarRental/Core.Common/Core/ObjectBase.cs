@@ -12,6 +12,7 @@ using System.Text;
 using System.Linq.Expressions;
 using Core.Common.Utils;
 using Core.Common.Extensions;
+using System.ComponentModel.Composition.Hosting;
 
 namespace Core.Common.Core
 {
@@ -27,6 +28,8 @@ namespace Core.Common.Core
         protected bool _IsDirty = false;
         protected IValidator _Validator = null;
         private IList<ValidationFailure> _ValidationErrors;
+
+        public static CompositionContainer Container { get; set; }
 
         #region IDirtyCapable members
 

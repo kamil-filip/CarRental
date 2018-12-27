@@ -3,7 +3,7 @@ using Core.Common.Core;
 using System;
 using System.Runtime.Serialization;
 
-namespace CarRental.Business.Entieties
+namespace CarRental.Business.Entities
 {
     [DataContract]
     public class Reservation : EntityBase, IIdentifiableEntity, IAccountOwnedEntity

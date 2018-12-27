@@ -21,3 +21,6 @@
 /CarRental/.vs/CarRental/DesignTimeBuild
 /CarRental/CarRental.Data.Tests/bin/Debug
 /CarRental/CarRental.Data.Tests/obj/Debug
+/CarRental/CarRental.Business.Bootstrapper/obj/Debug
+/CarRental/CarRental.Business.Bootstrapper/bin/Debug
+/CarRental/packages

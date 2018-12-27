@@ -4,7 +4,7 @@ using System;
 using System.Runtime.Serialization;
 
 
-namespace CarRental.Business.Entieties
+namespace CarRental.Business.Entities
 {
     [DataContract]
     public class Rental : EntityBase, IIdentifiableEntity, IAccountOwnedEntity

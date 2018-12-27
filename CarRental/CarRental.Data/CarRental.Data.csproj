@@ -38,6 +38,7 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -51,18 +52,35 @@
   <ItemGroup>
     <Compile Include="CarRentalContext.cs" />
     <Compile Include="Data Repositories\AccountRepository.cs" />
+    <Compile Include="Data Repositories\CarRepository.cs" />
+    <Compile Include="Data Repositories\DataRepositoryFactory.cs" />
+    <Compile Include="Data Repositories\RentalRepository.cs" />
+    <Compile Include="Data Repositories\ReservationRepository.cs" />
     <Compile Include="DataRepositoryBase.cs" />
+    <Compile Include="Migrations\201812271435109_Give_it_a_name.cs" />
+    <Compile Include="Migrations\201812271435109_Give_it_a_name.Designer.cs">
+      <DependentUpon>201812271435109_Give_it_a_name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201812271435109_Give_it_a_name.resx">
+      <DependentUpon>201812271435109_Give_it_a_name.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarRental.Business.Entieties\CarRental.Business.Entities.csproj">
       <Project>{F766B64B-05A5-462D-944F-171B446FAE43}</Project>
       <Name>CarRental.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.Data.Contracts\CarRental.Data.Contracts.csproj">
+      <Project>{32AC5F16-4ADB-4C8F-89CB-2B275692B58B}</Project>
+      <Name>CarRental.Data.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.Common.Contracts\Core.Common.Contracts.csproj">
       <Project>{037F6BA1-847A-4776-9188-9E7EBA336F97}</Project>
