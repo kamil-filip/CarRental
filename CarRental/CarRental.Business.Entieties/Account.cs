@@ -1,16 +1,14 @@
-﻿using Core.Common.Contracts;
-using Core.Common.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+using Core.Common.Contracts;
+using Core.Common.Core;
 
 namespace CarRental.Business.Entities
 {
     [DataContract]
-    public class Account : EntityBase, IIdentifiableEntity
+    public class Account : EntityBase, IIdentifiableEntity, IAccountOwnedEntity
     {
         [DataMember]
         public int AccountId { get; set; }
@@ -36,12 +34,27 @@ namespace CarRental.Business.Entities
         [DataMember]
         public string ZipCode { get; set; }
 
+        [DataMember]
+        public string CreditCard { get; set; }
+
+        [DataMember]
+        public string ExpDate { get; set; }
+
         #region IIdentifiableEntity members
 
         public int EntityId
         {
-            get => AccountId;
-            set => AccountId = value;
+            get { return AccountId; }
+            set { AccountId = value; }
+        }
+
+        #endregion
+
+        #region IAccountOwnedEntity
+
+        public int OwnerAccountId
+        {
+            get { return AccountId; }
         }
 
         #endregion

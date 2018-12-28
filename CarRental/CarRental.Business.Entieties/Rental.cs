@@ -19,7 +19,7 @@ namespace CarRental.Business.Entities
         public int CarId { get; set; }
 
         [DataMember]
-        public DateTime DataRented { get; set; }
+        public DateTime DateRented { get; set; }
 
         [DataMember]
         public DateTime DateDue { get; set; }

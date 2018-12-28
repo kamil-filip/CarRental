@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManagerBase.cs" />
+    <Compile Include="Managers\AccountManager.cs" />
     <Compile Include="Managers\InventoryManager.cs" />
+    <Compile Include="Managers\RentalManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +62,10 @@
     <ProjectReference Include="..\CarRental.Business.Entieties\CarRental.Business.Entities.csproj">
       <Project>{F766B64B-05A5-462D-944F-171B446FAE43}</Project>
       <Name>CarRental.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarRental.Common\CarRental.Common.csproj">
+      <Project>{8FD4DF86-4E21-4603-BCE3-5CDBCB3B7A20}</Project>
+      <Name>CarRental.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\CarRental.Data.Contracts\CarRental.Data.Contracts.csproj">
       <Project>{32AC5F16-4ADB-4C8F-89CB-2B275692B58B}</Project>
