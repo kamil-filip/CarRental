@@ -4,6 +4,7 @@ using System.ComponentModel.Composition;
 using CarRental.Business.Bootstrapper;
 using CarRental.Business.Entities;
 using CarRental.Data.Contracts.Repository_Interfaces;
+using Core.Common.Contracts;
 using Core.Common.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

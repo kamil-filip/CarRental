@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E297334B-1C64-42B1-AC51-1065BDA9EF2B}</ProjectGuid>
+    <ProjectGuid>{B7EB1779-0094-46EA-A2F7-838E0BE3E2B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CarRental.Business.Bootstrapper</RootNamespace>
-    <AssemblyName>CarRental.Business.Bootstrapper</AssemblyName>
+    <RootNamespace>CarRental.Business</RootNamespace>
+    <AssemblyName>CarRental.Business</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,17 +42,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MEFLoader.cs" />
+    <Compile Include="Business Engine\CarRentalEngine.cs" />
+    <Compile Include="BusinessEngineFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CarRental.Business\CarRental.Business.csproj">
-      <Project>{B7EB1779-0094-46EA-A2F7-838E0BE3E2B3}</Project>
-      <Name>CarRental.Business</Name>
+    <ProjectReference Include="..\CarRental.Business.Common\CarRental.Business.Common.csproj">
+      <Project>{E74B14D1-823B-4E44-B76A-2072EF5FADBB}</Project>
+      <Name>CarRental.Business.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CarRental.Data\CarRental.Data.csproj">
-      <Project>{FFC0CF9C-5533-46F5-A5F3-5918E24863AF}</Project>
-      <Name>CarRental.Data</Name>
+    <ProjectReference Include="..\CarRental.Business.Entieties\CarRental.Business.Entities.csproj">
+      <Project>{F766B64B-05A5-462D-944F-171B446FAE43}</Project>
+      <Name>CarRental.Business.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common.Contracts\Core.Common.Contracts.csproj">
+      <Project>{037F6BA1-847A-4776-9188-9E7EBA336F97}</Project>
+      <Name>Core.Common.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj">
+      <Project>{33B155EB-3D72-42A8-B53C-91021A6EA4C5}</Project>
+      <Name>Core.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

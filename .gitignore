@@ -24,3 +24,11 @@
 /CarRental/CarRental.Business.Bootstrapper/obj/Debug
 /CarRental/CarRental.Business.Bootstrapper/bin/Debug
 /CarRental/packages
+/CarRental/CarRental.Business/obj/Debug
+/CarRental/CarRental.Business/bin/Debug
+/CarRental/CarRental.Business.Common/bin/Debug
+/CarRental/CarRental.Business.Common/obj/Debug
+/CarRental/CarRental.Business.Contracts/bin/Debug
+/CarRental/CarRental.Business.Contracts/obj/Debug
+/CarRental/CarRental.Business.Managers/bin/Debug
+/CarRental/CarRental.Business.Managers/obj/Debug
