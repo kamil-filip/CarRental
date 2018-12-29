@@ -45,6 +45,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Common", "CarRent
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Common.Contracts", "CarRental.Common.Contracts\CarRental.Common.Contracts.csproj", "{D747D153-FAB2-48AC-ACEF-C1E73A149639}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRentalBusiness.Tests", "CarRentalBusiness.Tests\CarRentalBusiness.Tests.csproj", "{2E9FFF8C-5909-464F-8A14-146FE87CAAD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Business.Managers.Tests", "CarRental.Business.Managers.Tests\CarRental.Business.Managers.Tests.csproj", "{4DFC42A4-A2A0-4BDA-850C-9CC9F7350E23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,14 @@ Global
 		{D747D153-FAB2-48AC-ACEF-C1E73A149639}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D747D153-FAB2-48AC-ACEF-C1E73A149639}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D747D153-FAB2-48AC-ACEF-C1E73A149639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9FFF8C-5909-464F-8A14-146FE87CAAD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9FFF8C-5909-464F-8A14-146FE87CAAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9FFF8C-5909-464F-8A14-146FE87CAAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9FFF8C-5909-464F-8A14-146FE87CAAD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DFC42A4-A2A0-4BDA-850C-9CC9F7350E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DFC42A4-A2A0-4BDA-850C-9CC9F7350E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DFC42A4-A2A0-4BDA-850C-9CC9F7350E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DFC42A4-A2A0-4BDA-850C-9CC9F7350E23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +143,8 @@ Global
 		{E74B14D1-823B-4E44-B76A-2072EF5FADBB} = {92517D9A-AB20-4C73-8825-C941380B4076}
 		{8FD4DF86-4E21-4603-BCE3-5CDBCB3B7A20} = {1BFCC850-23A8-482F-A454-D288F884B7E2}
 		{D747D153-FAB2-48AC-ACEF-C1E73A149639} = {1BFCC850-23A8-482F-A454-D288F884B7E2}
+		{2E9FFF8C-5909-464F-8A14-146FE87CAAD2} = {C899AB7B-3C4B-4F6C-82B7-501EAD3D8517}
+		{4DFC42A4-A2A0-4BDA-850C-9CC9F7350E23} = {C899AB7B-3C4B-4F6C-82B7-501EAD3D8517}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D22B806C-DA4B-4D4C-AAD6-A72613FAFACB}
