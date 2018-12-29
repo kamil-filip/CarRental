@@ -3,7 +3,7 @@ using Core.Common.Contracts;
 using Core.Common.Core;
 using System.ComponentModel.Composition;
 
-namespace CarRental.Data.Data_Repositories
+namespace CarRental.Data
 {
     [Export(typeof(IDataRepositoryFactory))]
     [PartCreationPolicy(CreationPolicy.NonShared)] // disable singleton

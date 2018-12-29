@@ -1,5 +1,5 @@
 ﻿using CarRental.Business.Common;
-using CarRental.Business.Contracts.Service_Contracts;
+using CarRental.Business.Contracts;
 using CarRental.Business.Entities;
 using CarRental.Common;
 using CarRental.Data.Contracts.Repository_Interfaces;

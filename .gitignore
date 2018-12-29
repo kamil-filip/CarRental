@@ -40,3 +40,8 @@
 /CarRental/CarRental.Business.Managers.Tests/obj/Debug
 /CarRental/CarRentalBusiness.Tests/bin/Debug
 /CarRental/CarRentalBusiness.Tests/obj/Debug
+/CarRental/CarRental.ServiceHost.Console/bin/Debug
+/CarRental/CarRental.ServiceHost.Console/obj/Debug
+/CarRental/CarRental.ServiceHost.Tests/bin/Debug
+/CarRental/CarRental.ServiceHost.Tests/obj/Debug
+/CarRental/WindowsService1/obj/Debug

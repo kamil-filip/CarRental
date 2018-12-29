@@ -7,7 +7,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Business.Contracts.Service_Contracts
+namespace CarRental.Business.Contracts
 {
     [ServiceContract] // to make it as a service contract
     public interface IInventoryService

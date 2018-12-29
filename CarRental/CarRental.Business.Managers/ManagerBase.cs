@@ -16,7 +16,7 @@ namespace CarRental.Business.Managers
 {
     public class ManagerBase
     {
-        protected string _LoginName;
+        protected string _LoginName = string.Empty;
         protected Account _AuthorizationAccount = null;
 
         public ManagerBase()
@@ -24,8 +24,15 @@ namespace CarRental.Business.Managers
             OperationContext context = OperationContext.Current;
             if (context != null)
             {
-                _LoginName = context.IncomingMessageHeaders.GetHeader<string>("String", "System");
-                if (_LoginName.IndexOf(@"\") > 1) _LoginName = string.Empty;
+                try
+                {
+                    _LoginName = OperationContext.Current.IncomingMessageHeaders.GetHeader<string>("String", "System");
+                    if (_LoginName.IndexOf(@"\") > -1) _LoginName = string.Empty;
+                }
+                catch
+                {
+                    _LoginName = string.Empty;
+                }
             }
 
             if (ObjectBase.Container != null)

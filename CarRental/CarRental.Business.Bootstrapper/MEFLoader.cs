@@ -1,4 +1,4 @@
-﻿using CarRental.Data.Data_Repositories;
+﻿using CarRental.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;

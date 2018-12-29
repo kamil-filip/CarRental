@@ -4,7 +4,7 @@ using System.Linq;
 using CarRental.Data.Contracts.Repository_Interfaces;
 using System.ComponentModel.Composition;
 
-namespace CarRental.Data.Data_Repositories
+namespace CarRental.Data
 {
     [Export(typeof(IAccountRepository))]
     [PartCreationPolicy(CreationPolicy.NonShared)] // disable singleton

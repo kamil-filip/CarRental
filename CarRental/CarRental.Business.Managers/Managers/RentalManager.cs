@@ -15,10 +15,11 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Business.Managers.Managers
+namespace CarRental.Business.Managers
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall,
-        ConcurrencyMode = ConcurrencyMode.Multiple)]
+                     ConcurrencyMode = ConcurrencyMode.Multiple,
+                     ReleaseServiceInstanceOnTransactionComplete = false)]
     public class RentalManager : ManagerBase, IRentalService
     {
         public RentalManager()
@@ -41,6 +42,12 @@ namespace CarRental.Business.Managers.Managers
             _BusinessEngineFactory = businessEngineFactory;
         }
 
+        [Import]
+        IDataRepositoryFactory _DataRepositoryFactory;
+
+        [Import]
+        IBusinessEngineFactory _BusinessEngineFactory;
+
         protected override Account LoadAuthorizationValidationAccount(string loginName)
         {
             IAccountRepository accountRepository = _DataRepositoryFactory.GetDataRepository<IAccountRepository>();
@@ -53,14 +60,6 @@ namespace CarRental.Business.Managers.Managers
 
             return authAcct;
         }
-
-        [Import]
-        IDataRepositoryFactory _DataRepositoryFactory;
-
-        [Import]
-        IBusinessEngineFactory _BusinessEngineFactory;
-
-        // access depends on from wehere do we login in
 
         #region IRentalService operations
 
