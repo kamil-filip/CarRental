@@ -1,35 +1,41 @@
-﻿using Core.Common.Contracts;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text;
+using Core.Common.Contracts;
+using Core.Common.Extensions;
+using Core.Common.Utils;
 using FluentValidation;
 using FluentValidation.Results;
-using System.Text;
-using System.Linq.Expressions;
-using Core.Common.Utils;
-using Core.Common.Extensions;
-using System.ComponentModel.Composition.Hosting;
 
 namespace Core.Common.Core
 {
-    [DataContract]
-    public abstract class ObjectBase : NotificationObject, IExtensibleDataObject, IDirtyCapable, IDataErrorInfo
+    public abstract class ObjectBase : NotificationObject, IDirtyCapable, IExtensibleDataObject, IDataErrorInfo
     {
         public ObjectBase()
         {
             _Validator = GetValidator();
             Validate();
         }
-     
+
         protected bool _IsDirty = false;
         protected IValidator _Validator = null;
-        private IList<ValidationFailure> _ValidationErrors;
+
+        protected IEnumerable<ValidationFailure> _ValidationErrors = null;
 
         public static CompositionContainer Container { get; set; }
+
+        #region IExtensibleDataObject Members
+
+        public ExtensionDataObject ExtensionData { get; set; }
+
+        #endregion
 
         #region IDirtyCapable members
 
@@ -54,11 +60,10 @@ namespace Core.Common.Core
                 if (o.IsDirty)
                 {
                     isDirty = true;
-                    return true;
+                    return true; // short circuit
                 }
                 else
                     return false;
-
             }, coll => { });
 
             return isDirty;
@@ -80,7 +85,6 @@ namespace Core.Common.Core
             return dirtyObjects;
         }
 
-
         public void CleanAll()
         {
             WalkObjectGraph(
@@ -94,6 +98,63 @@ namespace Core.Common.Core
 
         #endregion
 
+        #region Protected methods
+
+        protected void WalkObjectGraph(Func<ObjectBase, bool> snippetForObject,
+                                       Action<IList> snippetForCollection,
+                                       params string[] exemptProperties)
+        {
+            List<ObjectBase> visited = new List<ObjectBase>();
+            Action<ObjectBase> walk = null;
+
+            List<string> exemptions = new List<string>();
+            if (exemptProperties != null)
+                exemptions = exemptProperties.ToList();
+
+            walk = (o) =>
+            {
+                if (o != null && !visited.Contains(o))
+                {
+                    visited.Add(o);
+
+                    bool exitWalk = snippetForObject.Invoke(o);
+
+                    if (!exitWalk)
+                    {
+                        PropertyInfo[] properties = o.GetBrowsableProperties();
+                        foreach (PropertyInfo property in properties)
+                        {
+                            if (!exemptions.Contains(property.Name))
+                            {
+                                if (property.PropertyType.IsSubclassOf(typeof(ObjectBase)))
+                                {
+                                    ObjectBase obj = (ObjectBase)(property.GetValue(o, null));
+                                    walk(obj);
+                                }
+                                else
+                                {
+                                    IList coll = property.GetValue(o, null) as IList;
+                                    if (coll != null)
+                                    {
+                                        snippetForCollection.Invoke(coll);
+
+                                        foreach (object item in coll)
+                                        {
+                                            if (item is ObjectBase)
+                                                walk((ObjectBase)item);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            walk(this);
+        }
+
+        #endregion
 
         #region Property change notification
 
@@ -119,70 +180,6 @@ namespace Core.Common.Core
         }
 
         #endregion
-        #region IExtensibleDataObject Members
-
-        public ExtensionDataObject ExtensionData { get; set; }
-
-        #endregion
-
-        #region protected
-
-        protected void WalkObjectGraph(Func<ObjectBase,bool> snippetForObject,
-                                       Action<IList> snippetForCollection,
-                                       params string [] exemptProperties)
-        {
-            List<ObjectBase> visited = new List<ObjectBase>();
-            Action<ObjectBase> walk = null;
-
-            List<string> exemptions = new List<string>();
-            if (exemptProperties != null)
-                exemptions = exemptProperties.ToList();
-
-            walk = (o) =>
-            {
-                if (o != null && !visited.Contains(o))
-                {
-                    visited.Add(o);
-
-                    bool exitWalk = snippetForObject.Invoke(o);
-
-                    if(!exitWalk)
-                    {
-                        PropertyInfo[] properties = o.GetBrowsableProperties();
-                        foreach(PropertyInfo property in properties)
-                        {
-                            if(!exemptions.Contains(property.Name))
-                            {
-                                if (property.PropertyType.IsSubclassOf(typeof(ObjectBase)))
-                                {
-                                    ObjectBase obj = (ObjectBase)(property.GetValue(o, null));
-                                    walk(obj);
-                                }
-                                else
-                                {
-                                    IList coll = property.GetValue(o, null) as IList;
-                                    if(coll != null)
-                                    {
-                                        snippetForCollection.Invoke(coll);
-
-                                        foreach(object item in coll)
-                                        {
-                                            if (item is ObjectBase)
-                                                walk((ObjectBase)item);
-                                        }
-                                    }
-                                }
-
-                            }
-                        }
-                    }
-                }
-            };
-
-            walk(this);
-        }
-
-        #endregion
 
         #region Validation
 
@@ -191,6 +188,7 @@ namespace Core.Common.Core
             return null;
         }
 
+        [NotNavigable]
         public IEnumerable<ValidationFailure> ValidationErrors
         {
             get { return _ValidationErrors; }
@@ -199,7 +197,7 @@ namespace Core.Common.Core
 
         public void Validate()
         {
-            if(_Validator != null)
+            if (_Validator != null)
             {
                 ValidationResult results = _Validator.Validate(this);
                 _ValidationErrors = results.Errors;
@@ -222,7 +220,6 @@ namespace Core.Common.Core
 
         #region IDataErrorInfo members
 
-
         string IDataErrorInfo.Error
         {
             get { return string.Empty; }
@@ -234,9 +231,9 @@ namespace Core.Common.Core
             {
                 StringBuilder errors = new StringBuilder();
 
-                if(_ValidationErrors != null && _ValidationErrors.Count() > 0)
+                if (_ValidationErrors != null && _ValidationErrors.Count() > 0)
                 {
-                    foreach(ValidationFailure validationError in _ValidationErrors)
+                    foreach (ValidationFailure validationError in _ValidationErrors)
                     {
                         if (validationError.PropertyName == columnName)
                             errors.AppendLine(validationError.ErrorMessage);
@@ -246,8 +243,6 @@ namespace Core.Common.Core
                 return errors.ToString();
             }
         }
-
-        public string this[string columnName] => throw new NotImplementedException();
 
         #endregion
 

@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using Core.Common;
 using Core.Common.ServiceModel;
 
-namespace CarRental.Business.Contracts
+namespace CarRental.Client.Contracts
 {
     [DataContract]
-    public class CustomerRentalData : DataContractBase
+    public class CustomerReservationData : DataContractBase
     {
         [DataMember]
-        public int RentalId { get; set; }
+        public int ReservationId { get; set; }
 
         [DataMember]
         public string CustomerName { get; set; }
@@ -20,9 +17,9 @@ namespace CarRental.Business.Contracts
         public string Car { get; set; }
 
         [DataMember]
-        public DateTime DateRented { get; set; }
+        public DateTime RentalDate { get; set; }
 
         [DataMember]
-        public DateTime ExpectedReturn { get; set; }
+        public DateTime ReturnDate { get; set; }
     }
 }

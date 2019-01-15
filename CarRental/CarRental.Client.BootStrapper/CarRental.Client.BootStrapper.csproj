@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{037F6BA1-847A-4776-9188-9E7EBA336F97}</ProjectGuid>
+    <ProjectGuid>{FD0869ED-FBA6-47AE-BEDE-8F995CDF7FEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Core.Common.Contracts</RootNamespace>
-    <AssemblyName>Core.Common.Contracts</AssemblyName>
+    <RootNamespace>CarRental.Client.BootStrapper</RootNamespace>
+    <AssemblyName>CarRental.Client.BootStrapper</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,16 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAccountOwnedEntity.cs" />
-    <Compile Include="IBusinessEngine.cs" />
-    <Compile Include="IBusinessEngineFactory.cs" />
-    <Compile Include="IDataRepository.cs" />
-    <Compile Include="IDataRepositoryFactory.cs" />
-    <Compile Include="IDirtyCapable.cs" />
-    <Compile Include="IIdentifiableEntity.cs" />
-    <Compile Include="IServiceContract.cs" />
-    <Compile Include="IServiceFactory.cs" />
+    <Compile Include="MEFLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarRental.Client.Proxies\CarRental.Client.Proxies.csproj">
+      <Project>{CBE707F3-1C7F-4B4E-935B-3A24A5F03FDF}</Project>
+      <Name>CarRental.Client.Proxies</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

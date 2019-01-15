@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using Core.Common;
 using Core.Common.ServiceModel;
 
-namespace CarRental.Business.Contracts
+namespace CarRental.Client.Contracts
 {
     [DataContract]
     public class CustomerRentalData : DataContractBase

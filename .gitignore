@@ -45,3 +45,15 @@
 /CarRental/CarRental.ServiceHost.Tests/bin/Debug
 /CarRental/CarRental.ServiceHost.Tests/obj/Debug
 /CarRental/WindowsService1/obj/Debug
+/CarRental/CarRental.Client.BootStrapper/bin/Debug
+/CarRental/CarRental.Client.BootStrapper/obj/Debug
+/CarRental/CarRental.Client.Contracts/bin/Debug
+/CarRental/CarRental.Client.BootStrapper/Properties/AssemblyInfo.cs
+/CarRental/CarRental.Client.Contracts/obj/Debug
+/CarRental/CarRental.Client.Proxies/bin/Debug
+/CarRental/CarRental.Client.Proxies/obj/Debug
+/CarRental/CarRental.Client.Proxies.Tests/bin/Debug
+/CarRental/CarRental.Client.Proxies.Tests/obj/Debug
+/CarRental/Core.Common.ServiceModel/bin/Debug
+/CarRental/Core.Common.ServiceModel/obj/Debug
+/Comparison
